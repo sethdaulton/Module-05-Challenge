@@ -1,6 +1,6 @@
-
 var currentDate = moment().format('dddd, MMMM Do');
 var saveButtons = $('.saveBtn');
+var userInput = $('.user-input');
 
 $("#currentDay").text(currentDate);
 
@@ -13,7 +13,7 @@ function checkHourStatus() {
         var formattedTimeBlock = timeBlockMoment.format("ha");
         console.log(formattedTimeBlock);
         
-        var currentTime = moment().hour()-4;
+        var currentTime = moment().hour();
         
         console.log("time block hour " + typeof timeBlockHour);
         console.log("current time " + typeof currentTime);
@@ -38,14 +38,6 @@ function checkHourStatus() {
         $(this).removeClass('past');
         $(this).addClass('future');
     }
-// // if time is at current time then apply .present class 
-//     } else if (moment().isSame(timeBlockMoment)) {
-//         document.getElementById("#9").classList.add('.present') 
-
-// // if time is after current time then apply .future class 
-//     } else (moment().isAfter(timeBlockMoment)) {
-//         document.getElementById("#9").classList.add('.future') 
-//     }
 
     })
 }
@@ -57,17 +49,27 @@ checkHourStatus();
 // call a save data function
 // Get name of the element
 
-saveButton.on("click" , clickHandler);
+// saveButtons.on("click" , clickHandler);
+// // console.log(clickHandler);
 
-function clickHandler(event) {
-    event.target.value
-    
-}
+// function clickHandler(event) {
+//     // event.target.value
+//     console.log(event.target); 
+//     console.log($(this).siblings('.user-input').val());
+//     console.log(userInput);
+//     console.log($(this).siblings('.time-block'));
+//     console.log($(this).parent().attr("id"));
+//     var keyArea = $(this).parent().attr("id");
+//     var varArea = $(this).siblings('.user-input').val()
+//     saveData(keyArea, varArea);
+// }
 
-//save data function
-//save it to local storage
-function saveData() {
-    var text = $(this).siblings(".description").val();
-    var time = $(this).parent().attr("id");
-    localStorage.setItem(time, text);
-}
+// // save data function
+// // save it to local storage
+// function saveData() {
+//     localStorage.setItem(key, var);
+// }
+
+// saveButtons.addEventListener("click", function() {
+//     localStorage.setItem("text" , "name");
+// })
